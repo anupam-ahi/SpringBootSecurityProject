@@ -20,7 +20,9 @@ public class UserController {
     }
     @PostMapping("/login")
     public String login(@RequestBody Users user){
-        System.out.println(user.toString());
-        return userService.verify(user);
+        System.out.println("Entered the login endpoint");
+        String bearerToken = userService.verify(user);
+
+        return bearerToken;
     }
 }
